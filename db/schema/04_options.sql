@@ -1,0 +1,10 @@
+DROP TABLE IF EXISTS options CASCADE;
+
+CREATE TABLE options (
+  id SERIAL PRIMARY KEY NOT NULL,
+  question_id INTEGER REFERENCES questions(id) ON DELETE CASCADE,
+  quiz_id INTEGER REFERENCES quizzes(id) ON DELETE CASCADE,
+  option text NOT NULL
+)
+
+
