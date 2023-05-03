@@ -16,3 +16,22 @@ body {
     rgba(163, 208, 219, 1) 100%
   );
 }
+
+.quiz-card {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 10px;
+  background-color: #fff;
+  box-shadow: 0 0 5px #ccc;
+  transition: all 0.3s ease-in-out;
+  &:hover {
+    box-shadow: 0 0 10px #ccc;
+  }
+}
+
+.flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
