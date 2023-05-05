@@ -1,0 +1,134 @@
+/* set default styles for the page */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+
+    /* style the header */
+    h1 {
+      font-size: 36px;
+      margin: 30px 0 20px;
+    }
+    
+    p {
+      font-size: 18px;
+      margin: 0 0 30px;
+    }
+    
+  
+  /* style the navigation bar */
+  nav {
+    background-color: #333;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 20px;
+  }
+  
+  nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  nav li {
+    display: inline-block;
+    margin-right: 20px;
+  }
+  
+  nav a {
+    color: white;
+    text-decoration: none;
+  }
+
+/* Style the quiz name and quiz description */
+  .quizInfo {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-left: 20px;
+    padding-top: 20px;
+  }
+  
+  .quizInfo label, 
+  .quizInfo input, 
+  .quizInfo textarea {
+    margin-bottom: 10px; /* Add some vertical spacing between the items */
+  }
+  
+/* Style the radio buttons and their outlying container */  
+  .QuizVisibility {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+    padding-left: 20px;
+  }
+  
+  .QuizVisibility label, 
+  .QuizVisibility input {
+    margin-right: 10px;
+  }
+  
+  .publicPrivateButton {
+    display: flex;
+    align-items: center;
+  }
+  
+  /* Style the question box */
+  .questionBox {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    padding-left: 20px;
+    max-width: 25%;
+  }
+  
+  .answers {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    padding-left: 20px;
+    max-width: 25%;
+  }
+
+  .buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+    padding-left: 20px;
+    max-width: 25%;;
+  }
+  
+
+  /* style the prior quizzes section */
+  #public-quizzes {
+    margin: 30px 0;
+  }
+  
+  #public-quizzes h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  #public-quizzes ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  #public-quizzes li {
+    margin-bottom: 10px;
+  }
+  
+  #public-quizzes a {
+    color: #333;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  #public-quizzes a:hover {
+    text-decoration: underline;
+  }
+  
