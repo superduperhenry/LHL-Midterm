@@ -16,6 +16,11 @@ router.get("/", (req, res) => {
 router.get("/:id", async (req, res) => {
   try {
     let quiz = await quizQueries.getQuizById(req.params.id);
+    if (!quiz) {
+      res.send("Quiz not found. Please try again. <a href='/'>Home</a>");
+      throw new Error("Quiz not found");
+    }
+
     let questions = await quizQueries.getQuestionsByQuizId(quiz.id);
 
     for (let question of questions) {
