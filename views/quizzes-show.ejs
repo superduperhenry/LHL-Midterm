@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Take a quiz!</title>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" />
+  <link rel="stylesheet" href="/vendor/border-box.css" />
+  <link rel="stylesheet" href="/styles/main.css" />
+  <link rel="stylesheet" href="/styles/layout.css" />
+
+  <script src="/vendor/jquery-3.0.0.js"></script>
+  <script defer src="/scripts/quizzes-show.js"></script>
+</head>
+
+<body>
+  <main class="container">
+    <section>
+      <% var test = 101; %>
+      <% if (quiz) { %>
+      <form id="quiz">
+
+        <h2><%= quiz.title %></h2>
+        <p><%= quiz.description%></p>
+        <p>Created by: <%= quiz.creator%></p>
+
+        <% quiz.questions.forEach(question => { %>
+        <h3><%= question.question%></h3>
+        <fieldset id="<%= `question-${question.question_id}` %>" data-correctanswer="<%= question.correct_answer %>">
+          <% question.options.forEach(option => { %>
+          <input required type="radio" id="<%= `${option.option}-${option.id}` %>" name="<%= `question-${question.question_id}` %>" value="<%= option.option %>">
+          <label for="<%= `${option.option}-${option.id}` %>">
+            <%= option.option %>
+          </label><br>
+          <% })%>
+        </fieldset>
+        <% })%>
+
+        <% } %>
+        <p id="scoreboard"></p>
+        <button type="submit" id="submit-quiz">Submit!</button>
+      </form>
+
+
+
+
+    </section>
+  </main>
+</body>
+
+</html>
