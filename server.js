@@ -5,9 +5,11 @@ require('dotenv').config();
 const sassMiddleware = require('./lib/sass-middleware');
 const express = require('express');
 const morgan = require('morgan');
+const db = require('./connection')
 
 const PORT = process.env.PORT || 8080;
 const app = express();
+
 
 app.set('view engine', 'ejs');
 
@@ -31,7 +33,8 @@ app.use(express.static('public'));
 const userApiRoutes = require('./routes/users-api');
 const widgetApiRoutes = require('./routes/widgets-api');
 const usersRoutes = require('./routes/users');
-
+const createQuizRoute = require('./routes/create-quiz');
+app.use('/createQuiz', createQuizRoute);
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
 // Note: Endpoints that return data (eg. JSON) usually start with `/api`
@@ -48,6 +51,10 @@ app.get('/', (req, res) => {
   res.render('index');
 });
 
+
 app.listen(PORT, () => {
+  console.log('This is env', process.env);
   console.log(`Example app listening on port ${PORT}`);
 });
+
+module.exports = app;
