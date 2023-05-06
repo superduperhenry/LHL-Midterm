@@ -1,8 +1,7 @@
-
 const loadQuizzes = function () {
   $.ajax({
     method: "GET",
-    url: "/api/quizzes"
+    url: "/api/quizzes",
   }).done((res) => {
     renderQuizzes(res.quizzes);
   });
@@ -16,14 +15,14 @@ const createQuizElement = function (quiz) {
         <p>${quiz.description}</p>
         <p>Created by: ${quiz.username}</p>
       </div>
-      <a href="/quiz/${quiz.id}" class="btn">Take Quiz</a>
+      <a href="/quizzes/${quiz.id}" class="btn">Take Quiz</a>
     </article>
   `;
   return quizElement;
 };
 
 const renderQuizzes = function (quizzes) {
-  quizzes.forEach(quiz => {
+  quizzes.forEach((quiz) => {
     $("#quizzes").append(createQuizElement(quiz));
   });
 };

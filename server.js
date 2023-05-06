@@ -41,8 +41,8 @@ const quizApiRoutes = require("./routes/quizzes-api");
 // Note: Endpoints that return data (eg. JSON) usually start with `/api`
 app.use("/api/users", userApiRoutes);
 app.use("/api/quizzes", quizApiRoutes);
-app.use("/createQuiz", createQuizRoute);
 app.use("/api/widgets", widgetApiRoutes);
+app.use("/createQuiz", createQuizRoute);
 app.use("/users", usersRoutes);
 app.use("/quizzes", quizRoutes);
 // Note: mount other resources here, using the same pattern above
