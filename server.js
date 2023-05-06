@@ -5,6 +5,7 @@ require("dotenv").config();
 const sassMiddleware = require("./lib/sass-middleware");
 const express = require("express");
 const morgan = require("morgan");
+const db = require("./connection");
 
 const PORT = process.env.PORT || 8080;
 const app = express();
@@ -29,9 +30,9 @@ app.use(express.static("public"));
 // Separated Routes for each Resource
 // Note: Feel free to replace the example routes below with your own
 const userApiRoutes = require("./routes/users-api");
-const usersRoutes = require("./routes/users");
 const widgetApiRoutes = require("./routes/widgets-api");
-
+const usersRoutes = require("./routes/users");
+const createQuizRoute = require("./routes/create-quiz");
 const quizRoutes = require("./routes/quizzes");
 const quizApiRoutes = require("./routes/quizzes-api");
 
@@ -40,8 +41,8 @@ const quizApiRoutes = require("./routes/quizzes-api");
 // Note: Endpoints that return data (eg. JSON) usually start with `/api`
 app.use("/api/users", userApiRoutes);
 app.use("/api/quizzes", quizApiRoutes);
-
 app.use("/api/widgets", widgetApiRoutes);
+app.use("/createQuiz", createQuizRoute);
 app.use("/users", usersRoutes);
 app.use("/quizzes", quizRoutes);
 // Note: mount other resources here, using the same pattern above
@@ -57,3 +58,5 @@ app.get("/", (req, res) => {
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
 });
+
+module.exports = app;
