@@ -5,9 +5,11 @@ require('dotenv').config();
 const sassMiddleware = require('./lib/sass-middleware');
 const express = require('express');
 const morgan = require('morgan');
+const db = require('./connection')
 
 const PORT = process.env.PORT || 8080;
 const app = express();
+
 
 app.set('view engine', 'ejs');
 
@@ -31,6 +33,7 @@ app.use(express.static('public'));
 const userApiRoutes = require('./routes/users-api');
 const widgetApiRoutes = require('./routes/widgets-api');
 const usersRoutes = require('./routes/users');
+const createQuizRoute = require('./routes/create-quiz');
 const quizRoutes = require('./routes/quizzes');
 const quizApiRoutes = require('./routes/quizzes-api');
 
@@ -39,7 +42,7 @@ const quizApiRoutes = require('./routes/quizzes-api');
 // Note: Endpoints that return data (eg. JSON) usually start with `/api`
 app.use('/api/users', userApiRoutes);
 app.use('/api/quizzes', quizApiRoutes);
-
+app.use('/createQuiz', createQuizRoute);
 app.use('/api/widgets', widgetApiRoutes);
 app.use('/users', usersRoutes);
 app.use('/quizzes', quizRoutes);
@@ -53,6 +56,10 @@ app.get('/', (req, res) => {
   res.redirect('/quizzes');
 });
 
+
 app.listen(PORT, () => {
+  console.log('This is env', process.env);
   console.log(`Example app listening on port ${PORT}`);
 });
+
+module.exports = app;
