@@ -2,7 +2,7 @@ const db = require("../../connection");
 
 const getQuizzes = async () => {
   const queryString = `
-    SELECT * FROM quizzes
+    SELECT quizzes.title, quizzes.description, users.username, quizzes.id FROM quizzes
     JOIN users ON users.id = quizzes.owner_id
     WHERE quizzes.is_private = false;
   `;
